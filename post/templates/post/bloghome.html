@@ -1,0 +1,19 @@
+{% extends 'post/blog.html' %}
+
+{% block content %}
+
+<div class="space-y-6">
+    {% for post in posts %}
+    <a href="{% url 'post_detail' post.slug %}">
+        <article class="p-6 bg-gray-50 rounded-xl transition ease-in-and-out hover:shadow">
+            <h2 class="text-3xl">
+                {{post.title}} | {{post.created_at}}
+            </h2>
+            <p>{{post.intro}}</p>
+            <p>Read more...</p>
+        </article>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
