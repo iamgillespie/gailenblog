@@ -2,18 +2,53 @@
 
 {% block content %}
 
-<div class="space-y-6">
+
+
+<div id="banner" class="rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 p-6 m-1 cursor-pointer">
+
+    <h1 id="gailenDevs" class="text-8xl text-white w-full p-4">GAILEN<span class="opacity-50">BLOGS</span></h1>
+    <article class="text-left text-sm text-gray-200 px-20 mb-10 space-y-3">
+        <p class="transition ease-in-and-out duration-200 hover:opacity-100 opacity-75">
+            This blog has been created in order that my progress as a developer might be tracked and reflected on.
+        </p>
+        <p class="transition ease-in-and-out duration-200 hover:opacity-100 opacity-75">
+            It is intended to aid in my own personal growth while simultaniously giving valuable insight into my
+            abilities to potential employers.</p>
+        <p class="transition ease-in-and-out duration-200 hover:opacity-100 opacity-75 text-center">
+            Feel free to leave me a comment on any of the posts or drop me an email.</p>
+    </article>
+
+</div>
+<div class="grid grid-flow-row md:grid-cols-2 xl:grid-cols-3">
     {% for post in posts %}
-    <a href="{% url 'post_detail' post.slug %}">
-        <article class="p-6 bg-gray-50 rounded-xl transition ease-in-and-out hover:shadow">
-            <h2 class="text-3xl">
-                {{post.title}} | {{post.created_at}}
-            </h2>
+<div class="p-1">
+    <article id="post" class="p-3 bg-gray-50 rounded-xl shadow-inner cursor-pointer">
+        
+            <div class="text-right">
+                <h2 class="text-3xl">
+                    {{post.title}}
+                </h2>
+                <p class="text-sm opacity-50">
+                    {{post.created_at}}
+                </p>
+            </div>
+
+            <hr class="m-4 text-center">
+
             <p>{{post.intro}}</p>
-            <p>Read more...</p>
-        </article>
-    </a>
+            <div class="py-3 flex justify-center">
+            <a href="{% url 'post_detail' post.slug %}" class="rounded-full border-solid border-2 border-sky-400 text-sky-500 p-4 transition ease-in-and-out hover:shadow-lg">
+            Read more...</a>                
+            </div>
+
+        
+    </article>
+</div>
     {% endfor %}
 </div>
+
+
+
+
 
 {% endblock %}

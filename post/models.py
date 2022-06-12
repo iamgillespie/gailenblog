@@ -10,7 +10,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, related_name='posts', on_delete = models.CASCADE)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
-    intro = models.TextField()
+    intro = models.TextField(max_length=280) #twitter character limit to keep the intro short.
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add = True)
 
