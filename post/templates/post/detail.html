@@ -1,7 +1,7 @@
 {% extends 'post/blog.html' %}
 
 {% block content %}
-
+<!--Display article -->
 <article class="p-6 bg-gray-100 rounded-xl">
     <h2 class="text-2xl">
         {{post.title}}
@@ -10,10 +10,11 @@
         {{post.created_at}}
          </h2> 
     <p class="text-gray-800 indent-8 py-6">
-        {{post.body}}
+        {{post.body|safe}}
     </p>
 </article>
 
+<!--  Display comments -->
 {% for comment in post.comments.all %}
 <div class="p-6 bg-gray-100 rounded-xl">
     <h2 class="text-xl">
@@ -26,6 +27,8 @@
 </div>
 {% endfor %}
 
+
+<!-- LEAVE COMMENTS -->
     <div class="p-6 bg-gray-100 rounded-xl">
     <form action="." method="post" class="space-y-6">
         {% csrf_token %}
@@ -36,10 +39,7 @@
             <input placeholder="Email" type="text" name="email" class="py-2 px-4 rounded-xl bg-white w-full">
         </div>
         <div>
-            <label for="comment">Comment:</label>
-            <textarea type="text" id="comment" name="comment" class="h-40 rounded-xl bg-white w-full">
-
-        </textarea>
+            <textarea placeholder="Type your comment here..." type="text" id="comment" name="comment" class="py-3 px-4 h-40 rounded-xl bg-white w-full"></textarea>
         </div>
         <div class="grid justify-items-center">
             <button class="rounded-full border-solid border-2 border-sky-400 text-sky-500 p-4 transition ease-in-and-out hover:shadow-lg">Submit</button>
