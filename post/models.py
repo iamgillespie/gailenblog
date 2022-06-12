@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor .fields import RichTextField
 
 class Category(models.Model):
     title = models.CharField(max_length=255)
@@ -11,7 +12,8 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     intro = models.TextField(max_length=280) #twitter character limit to keep the intro short.
-    body = models.TextField()
+    #body = models.TextField()
+    body = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add = True)
 
     class Meta:
