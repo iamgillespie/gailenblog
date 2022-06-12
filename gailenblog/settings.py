@@ -23,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%nf^gxs_i!t-0yeaurbm@7t3x$g#-r6i_=&*q3&2=(%*zd8c*l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-'gailenblog.pythonanywhere.com'
+'*'
+#'gailenblog.pythonanywhere.com'
 ]
 
 
@@ -119,6 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/gailenblog/post/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
