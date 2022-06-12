@@ -35,4 +35,12 @@ article#post:hover {
   -webkit-transition: ease-in .4s;
   transition: ease-in .4s;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-right: 5%;
+}
 /*# sourceMappingURL=style.css.map */
