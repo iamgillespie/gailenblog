@@ -14,6 +14,8 @@ class Post(models.Model):
     intro = models.TextField(max_length=280) #twitter character limit to keep the intro short.
     body = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add = True)
+    #isbn test
+    #isbn = models.CharField(max_length=255)
 
     class Meta:
         ordering = ('-created_at', )
